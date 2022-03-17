@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:my_app/screens/home_screen.dart';
-import 'package:my_app/screens/signup.dart';
+import 'package:my_app/controllers/authController.dart';
+import 'package:my_app/screens/login/reset/reset.dart';
+import 'package:my_app/screens/login/signup/signup.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class LoginScreen extends GetWidget<AuthController> {
+  LoginScreen({Key? key}) : super(key: key);
+
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController pwdController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -41,16 +45,18 @@ class LoginScreen extends StatelessWidget {
               'assets/images/new_logo.png',
               height: 100,
             ).py(20),
-            const TextField(
-              autofocus: true,
+            TextField(
+              autofocus: false,
+              controller: emailController,
               decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Enter Email',
                   hintText: 'ex: john@gmail.com',
                   prefixIcon: Icon(Icons.email)),
             ).p(10),
-            const TextField(
-              autofocus: true,
+            TextField(
+              autofocus: false,
+              controller: pwdController,
               obscureText: true,
               enableSuggestions: false,
               autocorrect: false,
@@ -59,8 +65,17 @@ class LoginScreen extends StatelessWidget {
                   labelText: 'Password',
                   prefixIcon: Icon(Icons.lock)),
             ).p(10),
-            'Forget password?'.text.make().objectCenterRight().p(10),
-            const Text(
+            Align(
+              alignment: Alignment.centerRight,
+              child: TextButton(
+                  style: TextButton.styleFrom(
+                    textStyle:
+                        const TextStyle(fontSize: 15, color: Colors.black),
+                  ),
+                  onPressed: () => Get.to(ForgetPasswordScreen()),
+                  child: Text('Forget Password')),
+            ).p(10),
+            Text(
               'Already Have an account?',
               style: TextStyle(fontSize: 15, color: Colors.black),
             ).p(10),
@@ -72,26 +87,27 @@ class LoginScreen extends StatelessWidget {
                   backgroundColor: Color(0xff053739),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(70))),
-              onPressed: () => Get.to(HomeScreen(
-                title: 'My Travel Guide',
-              )),
+              onPressed: () {
+                controller.login(emailController.text, pwdController.text);
+              },
               child: const Text(
                 'Login',
                 style: TextStyle(fontSize: 24),
               ),
-            ),
+            ).p(10),
             const Text(
               'Dont Have an account?',
               style: TextStyle(fontSize: 15, color: Colors.black),
             ),
-            InkWell(
-              onTap: () {
-                Get.to(() => const SignUpScreen());
-              },
-              child: const Text(
-                'Sign Up',
-                style: TextStyle(fontSize: 15, color: Colors.blue),
-              ),
+            Align(
+              alignment: Alignment.center,
+              child: TextButton(
+                  style: TextButton.styleFrom(
+                    textStyle:
+                        const TextStyle(fontSize: 15, color: Colors.black),
+                  ),
+                  onPressed: () => Get.to(SignUpScreen()),
+                  child: Text('Sign Up')),
             ),
           ]),
         ),

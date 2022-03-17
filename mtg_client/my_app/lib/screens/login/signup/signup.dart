@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'login.dart';
+import 'package:my_app/controllers/authController.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({Key? key}) : super(key: key);
+class SignUpScreen extends GetWidget<AuthController> {
+   SignUpScreen({Key? key}) : super(key: key);
+
+  final TextEditingController fullnameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController pwdController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Stack(children: [
         Container(
-          color: Color.fromARGB(255, 17, 25, 133),
+          color: Color(0xffFCD116),
         ),
         Container(
           width: context.screenWidth,
@@ -37,7 +43,8 @@ class SignUpScreen extends StatelessWidget {
                 ),
               ).p(20),
               TextField(
-                autofocus: true,
+                controller: emailController,
+                autofocus: false,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Enter Email',
@@ -45,14 +52,16 @@ class SignUpScreen extends StatelessWidget {
                     prefixIcon: Icon(Icons.email)),
               ).p(10),
               TextField(
-                autofocus: true,
+                controller: fullnameController,
+                autofocus: false,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Enter FullName',
                     prefixIcon: Icon(Icons.verified_user)),
               ).p(10),
               TextField(
-                autofocus: true,
+                controller: pwdController,
+                autofocus: false,
                 obscureText: true,
                 enableSuggestions: false,
                 autocorrect: false,
@@ -62,7 +71,7 @@ class SignUpScreen extends StatelessWidget {
                     prefixIcon: Icon(Icons.lock)),
               ).p(10),
               TextField(
-                autofocus: true,
+                autofocus: false,
                 obscureText: true,
                 enableSuggestions: false,
                 autocorrect: false,
@@ -76,14 +85,17 @@ class SignUpScreen extends StatelessWidget {
                     elevation: 6,
                     padding: const EdgeInsets.symmetric(
                         horizontal: 50, vertical: 10),
-                    backgroundColor: Color.fromARGB(255, 17, 25, 133),
+                    backgroundColor: Color(0xff053739),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(70))),
-                onPressed: () => Get.to(LoginScreen()),
+              onPressed: () {
+                    controller.createUser(fullnameController.text, emailController.text, pwdController.text);
+                  },
                 child: const Text(
                   'Sign Up',
                   style: TextStyle(fontSize: 24),
-                ),
+                )
+                ,
               ),
             ],
           ),

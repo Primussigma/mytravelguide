@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-//import 'package:get/get.dart';
-//import 'home_screen.dart';
-import "../dropdownmenu.dart";
+import 'package:my_app/screens/shared/dropdownmenu.dart';
 //import '../controllers/home_controller.dart';
-//import 'second_screen.dart';
+
 
 class TicketPage extends StatelessWidget {
   final String title;
@@ -11,6 +9,7 @@ class TicketPage extends StatelessWidget {
   final List<String> entries = <String>['A', 'B', 'C'];
   final List<int> colorCodes = <int>[600, 500, 100];
 
+  // ignore: type_init_formals
   TicketPage({Key? key, required String this.title}) : super(key: key);
 
   @override

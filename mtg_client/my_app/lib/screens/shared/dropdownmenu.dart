@@ -1,17 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-//import 'screens/home.dart';
-import 'screens/login.dart';
-import 'screens/livetracking.dart';
-//import 'package:cupertino_icons/cupertino_icons.dart';
-import 'screens/myfavorites.dart';
-import 'screens/purchases.dart';
-import 'screens/settings.dart';
-import 'screens/ticket_page.dart';
-import 'screens/home_screen.dart';
+import 'package:my_app/controllers/userController.dart';
+import 'package:my_app/screens/login/loginScreen.dart';
+import 'package:my_app/screens/tracking/livetracking.dart';
+import 'package:my_app/screens/favourites.dart/myfavorites.dart';
+import 'package:my_app/screens/purchase/purchases.dart';
+import 'package:my_app/screens/settingsInfo/settings.dart';
+import 'package:my_app/screens/ticket/ticket_page.dart';
+import 'package:my_app/screens/home/home_screen.dart';
 
 class DropDownMenu extends StatelessWidget {
+  UserController userController = Get.find();
   @override
   Widget build(BuildContext context) {
     //final user = UserPreferences.myUser;
@@ -20,8 +20,12 @@ class DropDownMenu extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: [
           UserAccountsDrawerHeader(
-            accountName: const Text('Jane Doe'),
-            accountEmail: const Text('janedoe_3@email.com'),
+            accountName: userController.user.name != null
+                ? Text(userController.user.name!)
+                : Text('Guest'),
+            accountEmail: userController.user.email != null
+                ? Text(userController.user.email!)
+                : Text('Not Logged In'),
             currentAccountPicture: CircleAvatar(
               child: ClipOval(
                 child: Image.network(
@@ -44,7 +48,7 @@ class DropDownMenu extends StatelessWidget {
             leading: Icon(Icons.house_rounded),
             title: Text('Home'),
             onTap: () {
-              Get.to(() => (HomeScreen(title: "MyTravelGuide")));
+              Get.to(() => (HomeScreen()));
             },
           ),
           ListTile(
@@ -87,19 +91,29 @@ class DropDownMenu extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.description),
             title: Text('Policies'),
-            onTap: () => null,
+            onTap: () {},
           ),
           ListTile(
             leading: Icon(Icons.info_outline_rounded),
             title: Text('About Us'),
-            onTap: () => null,
+            onTap: () {},
           ),
-          ListTile(
-            title: Text('Sign In'),
-            leading: Icon(Icons.exit_to_app_rounded),
-            onTap: () {
-              Get.to(() => (LoginScreen()));
-            },
+          Visibility(
+            visible: userController.user.name == null,
+            child: ListTile(
+              title: Text('Sign In'),
+              leading: Icon(Icons.exit_to_app_rounded),
+              onTap: () {
+                Get.to(() => (LoginScreen()));
+              },
+            ),
+            replacement: ListTile(
+              title: Text('Sign Out'),
+              leading: Icon(Icons.exit_to_app_rounded),
+              onTap: () {
+                Get.offAll(() => (LoginScreen()));
+              },
+            ),
           ),
         ],
       ),
