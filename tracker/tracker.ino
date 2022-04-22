@@ -18,7 +18,7 @@ const char* serverName = "https://us-central1-mytravelguide-4f370.cloudfunctions
 // the following variables are unsigned longs because the time, measured in
 // milliseconds, will quickly become a bigger number than can be stored in an int.
 unsigned long lastTime = 0;
-//Timer set to 5 minutes (300000)
+//Timer set to 10 minutes (300000)
 unsigned long timerDelay = 600000;
 // Set timer to 30 seconds (30000)
 //unsigned long timerDelay = 30000;
@@ -57,7 +57,7 @@ void loop()
     if (gps.encode(Serial1.read())){
       displayInfo();
       if (gps.location.isValid()&& gps.speed.isValid() && gps.course.isValid()) {
-        //Send an HTTP POST request every 5 minutes
+        //Send an HTTP POST request every 10 minutes
         if ((millis() - lastTime) > timerDelay) {
             HTTPClient http;
             latitude = gps.location.lat();
