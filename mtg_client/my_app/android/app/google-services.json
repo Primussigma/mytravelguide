@@ -1,0 +1,82 @@
+{
+    "project_info": {
+      "project_number": "1051661065499",
+      "project_id": "mytravelguide-4f370",
+      "storage_bucket": "mytravelguide-4f370.appspot.com"
+    },
+    "client": [
+      {
+        "client_info": {
+          "mobilesdk_app_id": "1:1051661065499:android:bb6d0f73adaafe5573c7be",
+          "android_client_info": {
+            "package_name": "com.example.my_app"
+          }
+        },
+        "oauth_client": [
+          {
+            "client_id": "1051661065499-kjp2u8g839f76l7vrpci2tui5103ubnh.apps.googleusercontent.com",
+            "client_type": 3
+          }
+        ],
+        "api_key": [
+          {
+            "current_key": "AIzaSyCZoW6xi5ViSaX_CM5OVXqheHSpp_lIv58"
+          }
+        ],
+        "services": {
+          "appinvite_service": {
+            "other_platform_oauth_client": [
+              {
+                "client_id": "1051661065499-kjp2u8g839f76l7vrpci2tui5103ubnh.apps.googleusercontent.com",
+                "client_type": 3
+              },
+              {
+                "client_id": "1051661065499-g7v6dqscj7jkrovjie8j576tf4pg8246.apps.googleusercontent.com",
+                "client_type": 2,
+                "ios_info": {
+                  "bundle_id": "com.project.mytravelguide"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "client_info": {
+          "mobilesdk_app_id": "1:1051661065499:android:45a8ebed6d82d59673c7be",
+          "android_client_info": {
+            "package_name": "com.project.mytravelguide"
+          }
+        },
+        "oauth_client": [
+          {
+            "client_id": "1051661065499-kjp2u8g839f76l7vrpci2tui5103ubnh.apps.googleusercontent.com",
+            "client_type": 3
+          }
+        ],
+        "api_key": [
+          {
+            "current_key": "AIzaSyCZoW6xi5ViSaX_CM5OVXqheHSpp_lIv58"
+          }
+        ],
+        "services": {
+          "appinvite_service": {
+            "other_platform_oauth_client": [
+              {
+                "client_id": "1051661065499-kjp2u8g839f76l7vrpci2tui5103ubnh.apps.googleusercontent.com",
+                "client_type": 3
+              },
+              {
+                "client_id": "1051661065499-g7v6dqscj7jkrovjie8j576tf4pg8246.apps.googleusercontent.com",
+                "client_type": 2,
+                "ios_info": {
+                  "bundle_id": "com.project.mytravelguide"
+                }
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "configuration_version": "1"
+  }

@@ -4,12 +4,11 @@ import 'package:my_app/controllers/authController.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class SignUpScreen extends GetWidget<AuthController> {
-   SignUpScreen({Key? key}) : super(key: key);
+  SignUpScreen({Key? key}) : super(key: key);
 
   final TextEditingController fullnameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController pwdController = TextEditingController();
-
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +16,7 @@ class SignUpScreen extends GetWidget<AuthController> {
       resizeToAvoidBottomInset: false,
       body: Stack(children: [
         Container(
-          color: Color(0xffFCD116),
+          color: Color(0xff009E60),
         ),
         Container(
           width: context.screenWidth,
@@ -32,7 +31,12 @@ class SignUpScreen extends GetWidget<AuthController> {
         Center(
           child: Column(
             children: <Widget>[
-              SizedBox(height: 30),
+              SizedBox(height: 10),
+              Image.asset(
+                'assets/images/Boating App Logo-01.png',
+                height: 150,
+                width: 300,
+              ),
               Text(
                 'Register New User ',
                 style: TextStyle(
@@ -88,14 +92,14 @@ class SignUpScreen extends GetWidget<AuthController> {
                     backgroundColor: Color(0xff053739),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(70))),
-              onPressed: () {
-                    controller.createUser(fullnameController.text, emailController.text, pwdController.text);
-                  },
+                onPressed: () {
+                  controller.createUser(fullnameController.text,
+                      emailController.text, pwdController.text);
+                },
                 child: const Text(
                   'Sign Up',
                   style: TextStyle(fontSize: 24),
-                )
-                ,
+                ),
               ),
             ],
           ),

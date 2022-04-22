@@ -1,11 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.my_app">
+    package="com.project.mytravelguide">
    <application
-        android:label="my_app"
+        android:label="MyTravelGuide"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
         <meta-data android:name="com.google.android.geo.API_KEY"
-               android:value="Your API KEY"/>
+               android:value="AIzaSyDPcvxyhvuz6KOSWXgueEwAl1Ay3wJ6d-E"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -13,6 +13,7 @@
             android:theme="@style/LaunchTheme"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize">
             <!-- Specifies an Android theme to apply to this Activity as soon as
                  the Android process has started. This theme is visible to the user
@@ -33,5 +34,10 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="high_importance_channel" />
+        
     </application>
+    <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>

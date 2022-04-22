@@ -2,12 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 class ImageCarousel extends StatelessWidget {
-  ImageCarousel({Key? key}) : super(key: key);
+  ImageCarousel({
+    Key? key,
+  }) : super(key: key);
+
+  final List <String> nameList = ['Kingstown Port ', 'Aerial View of Kingstown Port', 'Canouan Port ', 'Union Island Port ', 'Mayreau Port '];
 
   final List<String> imageList = [
-    "https://www.telegraph.co.uk/content/dam/Travel/Destinations/Caribbean/StVincentGrenadadines/kingstown-st-vincent-port-guide-2.jpg",
-    'https://img.marinas.com/v2/c23db371789f065ab2935dbf2a57d9779ed6a6ced13d178125be215fbcea6947.jpg',
-    'https://cdn.pixabay.com/photo/2019/11/25/18/24/st-4652732_960_720.jpg',
+    'https://firebasestorage.googleapis.com/v0/b/mytravelguide-4f370.appspot.com/o/kingstown-st-vincent-port-guide-2.jpg?alt=media&token=24a98539-49cf-4133-9ac4-e80c2e40ee6a',
+    'https://firebasestorage.googleapis.com/v0/b/mytravelguide-4f370.appspot.com/o/kingstown_bay.jpg?alt=media&token=f7863877-4fca-45f9-8659-13e67d76c0f3',
+    'https://firebasestorage.googleapis.com/v0/b/mytravelguide-4f370.appspot.com/o/Canouan.jpeg?alt=media&token=9c9ce36e-1f96-4b28-a841-894662c8bcd5',
+    'https://firebasestorage.googleapis.com/v0/b/mytravelguide-4f370.appspot.com/o/Mayreau.jpeg?alt=media&token=2ea9dff2-25e7-49f7-a287-85f0a3388527',
+    'https://firebasestorage.googleapis.com/v0/b/mytravelguide-4f370.appspot.com/o/Union_Island.jpeg?alt=media&token=475b1ed2-6b1b-4819-8e7c-13800a5d622c',
   ];
 
   @override
@@ -23,23 +29,27 @@ class ImageCarousel extends StatelessWidget {
         aspectRatio: 5.0,
       ),
       itemBuilder: (context, i, id) {
-        //for onTap to redirect to another screen
         return GestureDetector(
-          child: Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                border: Border.all(
-                  color: Colors.white,
-                )),
-            //ClipRRect for image border radius
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(15),
-              child: Image.network(
-                imageList[i],
-                width: 500,
-                fit: BoxFit.cover,
+          child: Column(
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    border: Border.all(
+                      color: Colors.white,
+                    )),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  child: Image.network(
+                    imageList[i],
+                    width: 500,
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
-            ),
+              Text(nameList[i],
+              style: TextStyle(fontSize: 15),),
+            ],
           ),
           onTap: () {
             var url = imageList[i];

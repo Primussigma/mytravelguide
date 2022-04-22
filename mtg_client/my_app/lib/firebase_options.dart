@@ -17,20 +17,14 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     // ignore: missing_enum_constant_in_switch
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for ios - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return ios;
       case TargetPlatform.macOS:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for macos - '
@@ -43,11 +37,31 @@ class DefaultFirebaseOptions {
     );
   }
 
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyD_1gbX1SxeQxJQEWbi6uYGAO8fnGk_YEs',
+    appId: '1:1051661065499:web:a64b6dfbfad1542e73c7be',
+    messagingSenderId: '1051661065499',
+    projectId: 'mytravelguide-4f370',
+    authDomain: 'mytravelguide-4f370.firebaseapp.com',
+    storageBucket: 'mytravelguide-4f370.appspot.com',
+    measurementId: 'G-QQ2J2488XS',
+  );
+
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'Your Key',
-    appId: 'Your Id',
-    messagingSenderId: 'YOUR MESSAGE SENDER ID',
-    projectId: 'Project Name',
-    storageBucket: 'Project.appspot.com',
+    apiKey: 'AIzaSyCZoW6xi5ViSaX_CM5OVXqheHSpp_lIv58',
+    appId: '1:1051661065499:android:45a8ebed6d82d59673c7be',
+    messagingSenderId: '1051661065499',
+    projectId: 'mytravelguide-4f370',
+    storageBucket: 'mytravelguide-4f370.appspot.com',
+  );
+
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyAcvjK-zkE1aWH_-91U4V2w5pmexz-snqk',
+    appId: '1:1051661065499:ios:07d5242f58146f9273c7be',
+    messagingSenderId: '1051661065499',
+    projectId: 'mytravelguide-4f370',
+    storageBucket: 'mytravelguide-4f370.appspot.com',
+    iosClientId: '1051661065499-g7v6dqscj7jkrovjie8j576tf4pg8246.apps.googleusercontent.com',
+    iosBundleId: 'com.project.mytravelguide',
   );
 }

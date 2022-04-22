@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_app/controllers/userController.dart';
 import 'package:my_app/models/user.dart';
@@ -9,21 +10,20 @@ import 'package:my_app/services/database.dart';
 class AuthController extends GetxController {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final Rxn<User> _firebaseUser = Rxn<User>();
+  bool isUserLoggedIn = false;
 
   User? get user => _firebaseUser.value;
 
   @override
   void onInit() {
     super.onInit();
-
-    _firebaseUser.bindStream(_auth.authStateChanges());
   }
 
   void createUser(String name, String email, String password) async {
     try {
       UserCredential _authResult = await _auth.createUserWithEmailAndPassword(
           email: email.trim(), password: password);
-      //create user in database.dart
+
       UserModel _user = UserModel(
         id: _authResult.user!.uid,
         name: name,
@@ -38,6 +38,7 @@ class AuthController extends GetxController {
         "Error creating Account",
         e.toString(),
         snackPosition: SnackPosition.BOTTOM,
+        colorText: Colors.black,
       );
     }
   }
@@ -55,6 +56,7 @@ class AuthController extends GetxController {
         "Error signing in",
         e.toString(),
         snackPosition: SnackPosition.BOTTOM,
+        colorText: Colors.black,
       );
     }
   }
@@ -69,6 +71,7 @@ class AuthController extends GetxController {
         "Error signing out",
         e.toString(),
         snackPosition: SnackPosition.BOTTOM,
+        colorText: Colors.black,
       );
     }
   }

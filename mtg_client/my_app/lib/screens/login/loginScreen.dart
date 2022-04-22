@@ -17,7 +17,7 @@ class LoginScreen extends GetWidget<AuthController> {
       resizeToAvoidBottomInset: false,
       body: Stack(children: [
         Container(
-          color: Color(0xffFCD116),
+          color: Color(0xff009E60),
         ),
         Container(
           width: context.screenWidth,
@@ -31,19 +31,11 @@ class LoginScreen extends GetWidget<AuthController> {
         ),
         Center(
           child: Column(children: <Widget>[
-            SizedBox(height: 30),
-            Text(
-              'MyTravelGuide',
-              style: TextStyle(
-                color: Color.fromARGB(255, 17, 25, 133),
-                fontSize: 28,
-                fontWeight: FontWeight.w600,
-                letterSpacing: 1.2,
-              ),
-            ),
+            SizedBox(height: 10),
             Image.asset(
-              'assets/images/new_logo.png',
-              height: 100,
+              'assets/images/Boating App Logo-01.png',
+              height: 150,
+              width: 300,
             ).py(20),
             TextField(
               autofocus: false,
