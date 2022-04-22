@@ -11,4 +11,12 @@
 
 ## How-To 
 
+## How to Use the Project
+
+## Credits
+###### Collaborators/Contributers
+###### Sade Audain https://github.com/Sade11
+###### Chantel Lewis https://github.com/chantellewis
+###### Jared Hamid https://github.com/Primussigma
+
 
