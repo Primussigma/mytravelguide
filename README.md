@@ -30,6 +30,10 @@
 
 ## How to Use the Project
 
+## How to Use the Tracker
+
+## How to Use the Cloud Functions
+
 ## Credits
 ###### Collaborators/Contributers
 ###### Sade Audain https://github.com/Sade11
