@@ -9,6 +9,6 @@
 
 ## Table of Contents (Optional)
 
-## How To 
+## How-To 
 
 
