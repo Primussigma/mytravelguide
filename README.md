@@ -1,4 +1,4 @@
-# MyTavelGuide Mobile Application
+# MyTravelGuide Mobile Application
 
 ###### We are JCS Software Solutions and this is our INFO 3604 Final Project.
 
