@@ -9,6 +9,5 @@
 
 ## Table of Contents (Optional)
 
-## How-To 
-
+## How-To-Install-and-Run-Project
 
