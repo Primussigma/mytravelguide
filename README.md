@@ -6,3 +6,9 @@
 ###### MyTravelGuide is an Android application developed using the Flutter framework and Firebase database, to track the arrival of boats in St. Vincent and the Grenadines.
 
 ## Project Description
+
+## Table of Contents (Optional)
+
+## How To 
+
+
