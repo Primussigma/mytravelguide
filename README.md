@@ -1,4 +1,4 @@
-# MyTravelGuide Mobile Application
+# MyTravelGuide Android Application
 
 ###### We are JCS Software Solutions and this is our INFO 3604 Final Project.
 
