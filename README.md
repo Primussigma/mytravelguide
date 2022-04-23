@@ -29,10 +29,13 @@
 
 
 ## How to Use the Project
+###### [mytravelguide](mtg_client/README.md)
 
 ## How to Use the Tracker
+###### [mytravelguide](tracker/README.md)
 
 ## How to Use the Cloud Functions
+###### [mytravelguide](cloud-functions/README.md)
 
 ## Credits
 ###### Collaborators/Contributers
